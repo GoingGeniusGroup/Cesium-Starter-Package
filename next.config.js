@@ -12,25 +12,13 @@ const nextConfig = {
               from: '../public/Cesium/Workers',
             },
             {
-              from: path.join(
-                projectRoot,
-                'node_modules/cesium/Build/Cesium/ThirdParty'
-              ),
-              to: '../public/Cesium/ThirdParty',
+              from: '../public/Cesium/ThirdParty',
             },
             {
-              from: path.join(
-                projectRoot,
-                'node_modules/cesium/Build/Cesium/Assets'
-              ),
-              to: '../public/Cesium/Assets',
+              from: '../public/Cesium/Assets',
             },
             {
-              from: path.join(
-                projectRoot,
-                'node_modules/cesium/Build/Cesium/Widgets'
-              ),
-              to: '../public/Cesium/Widgets',
+              from: '../public/Cesium/Widgets',
             },
           ],
         })
