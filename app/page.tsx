@@ -8,9 +8,12 @@ const Page = () => {
   return (
     <div>
       {/* <ClockCesiumViewer /> */}
-      <CesiumViewer />
-      {/* <RadarChartPage /> */}
       <div>
+        <CesiumViewer />
+      </div>
+      {/* <RadarChartPage /> */}
+
+      <div className="start-0">
         <TestDiv />
       </div>
     </div>
