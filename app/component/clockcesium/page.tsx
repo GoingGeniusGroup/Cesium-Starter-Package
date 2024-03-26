@@ -14,9 +14,9 @@ import {
 } from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import { useEffect } from "react";
-import "./css/main.css";
+// import "./css/main.css";
 
-const CesiumViewer = () => {
+const ClockCesiumViewer = () => {
   useEffect(() => {
     const initializeCesiumViewer = async () => {
       // CesiumJS has a default access token built in but it's not meant for active use.
@@ -75,4 +75,4 @@ const CesiumViewer = () => {
   );
 };
 
-export default CesiumViewer;
+export default ClockCesiumViewer;

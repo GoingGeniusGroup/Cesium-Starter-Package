@@ -103,7 +103,7 @@ export default function RadarChartPage() {
               />
               {/* <Tooltip /> */}
               <Tooltip
-                content={<CustomTooltip active={false} payload={[]} label="" />}
+                content={<CustomTooltip active={true} payload={[]} label="" />}
               />
               {/* <Legend /> */}
               <Legend
