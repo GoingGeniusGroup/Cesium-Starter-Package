@@ -6,14 +6,11 @@ import TestDiv from "./component/testdiv/page";
 
 const Page = () => {
   return (
-    <div>
-      {/* <ClockCesiumViewer /> */}
-      <div>
-        <CesiumViewer />
-      </div>
-      {/* <RadarChartPage /> */}
-
-      <div className="start-0">
+    <div className="relative">
+      <div className="flex justify-start absolte">
+        {/* <CesiumViewer /> */}
+        {/* <RadarChartPage /> */}
+        <ClockCesiumViewer />
         <TestDiv />
       </div>
     </div>

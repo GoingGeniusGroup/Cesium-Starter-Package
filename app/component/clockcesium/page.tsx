@@ -14,7 +14,7 @@ import {
 } from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import { useEffect } from "react";
-// import "./css/main.css";
+import "./css/main.css";
 
 const ClockCesiumViewer = () => {
   useEffect(() => {
