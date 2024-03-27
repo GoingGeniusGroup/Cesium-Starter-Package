@@ -15,19 +15,27 @@ import "cesium/Build/Cesium/Widgets/widgets.css";
 import { useEffect } from "react";
 import "./css/main.css";
 
-const AvatarCesiumViewer = () => {
+const VehicleCesiumViewer = () => {
   useEffect(() => {
     const initializeCesiumViewer = async () => {
       Ion.defaultAccessToken =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkZGUzY2FhOC00M2ViLTQ2ZmQtYWQ1Yy1kYzNhYzFhZmVkZjIiLCJpZCI6MjAwOTU1LCJpYXQiOjE3MTAyMjkxNDF9.09cBca1kjkwB2lSOjuJMFMjOUV1DWT75cHXqT3zGxIU";
 
       const viewer = new Viewer("cesiumContainer", {
+        infoBox: false,
+        selectionIndicator: false,
+        shadows: true,
         shouldAnimate: true,
       });
       const scene = viewer.scene;
+      scene.globe.depthTestAgainstTerrain = true;
+
+      if (!scene.sampleHeightSupported) {
+        window.alert("This browser does not support sampleHeight.");
+      }
 
       const position = Cartesian3.fromDegrees(-123.0744619, 44.0503706);
-      const url = "https://models.readyplayer.me/66038d9e2aa392635c277ea9.glb";
+      const url = "carblack.glb";
       const entity = (viewer.trackedEntity = viewer.entities.add({
         name: url,
         position: position,
@@ -89,4 +97,4 @@ const AvatarCesiumViewer = () => {
   );
 };
 
-export default AvatarCesiumViewer;
+export default VehicleCesiumViewer;
