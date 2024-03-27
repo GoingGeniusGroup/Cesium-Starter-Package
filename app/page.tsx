@@ -1,11 +1,11 @@
 import ClockCesiumViewer from "./component/clockcesium/page";
 import CesiumViewer from "./component/widgetcesium/page";
-import AvatarCesiumViewer from "./component/avatarcesium/page";
 
 import BarChartPage from "./component/barchart/page";
 import TestDiv from "./component/testdiv/page";
 import Navbar from "./component/navbar/page";
 import VehicleCesiumViewer from "./component/vehiclecesium/page";
+import AircraftCesiumViewer from "./component/aircraftcesium/page";
 
 const Page = () => {
   return (
@@ -26,6 +26,8 @@ const Page = () => {
           {/* <AvatarCesiumViewer /> */}
           {/* <ClockCesiumViewer /> */}
           <VehicleCesiumViewer />
+          {/* <BikeCesiumViewer /> */}
+          {/* <AircraftCesiumViewer /> */}
         </div>
 
         <Navbar />

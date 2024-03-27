@@ -1,10 +1,23 @@
 "use client";
-import { Cartesian3, Ion, Viewer, createOsmBuildingsAsync } from "cesium";
+import {
+  Cartesian3,
+  Ion,
+  defined,
+  ScreenSpaceEventHandler,
+  Viewer,
+  createOsmBuildingsAsync,
+  PostProcessStage,
+  Color,
+  ScreenSpaceEventType,
+  Cartesian2,
+  Transforms,
+  HeadingPitchRoll,
+} from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import { useEffect } from "react";
 import "./css/main.css";
 
-const CesiumViewer = () => {
+const VehicleCesiumViewer = () => {
   useEffect(() => {
     const initializeCesiumViewer = async () => {
       Ion.defaultAccessToken =
@@ -16,22 +29,30 @@ const CesiumViewer = () => {
         shadows: true,
         shouldAnimate: true,
       });
-      const scene = viewer.scene;
-      scene.globe.depthTestAgainstTerrain = true;
 
-      if (!scene.sampleHeightSupported) {
-        window.alert("This browser does not support sampleHeight.");
-      }
+      viewer.entities.removeAll();
 
-      const position = Cartesian3.fromDegrees(85.333336, 27.700001);
-      const url = "carblack.glb";
-      const entity = (viewer.trackedEntity = viewer.entities.add({
+      const position = Cartesian3.fromDegrees(85.28472, 27.688835, 0);
+      const heading = (210 * Math.PI) / 180;
+      const pitch = 0;
+      const roll = 0;
+      const hpr = new HeadingPitchRoll(heading, pitch, roll);
+      const orientation = Transforms.headingPitchRollQuaternion(position, hpr);
+
+      // const url = "mclaren.glb";
+      // const url = "honda_twister_300.glb";
+      // const url = "mclaren.glb";
+      const url = "https://models.readyplayer.me/66038d9e2aa392635c277ea9.glb"; // avatar
+
+      const entity = viewer.entities.add({
         name: url,
         position: position,
+        orientation: orientation,
         model: {
           uri: url,
         },
-      }));
+      });
+      viewer.trackedEntity = entity;
     };
 
     initializeCesiumViewer();
@@ -49,4 +70,4 @@ const CesiumViewer = () => {
   );
 };
 
-export default CesiumViewer;
+export default VehicleCesiumViewer;
