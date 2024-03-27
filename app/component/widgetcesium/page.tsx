@@ -1,20 +1,8 @@
 "use client";
-import {
-  Cartesian3,
-  Clock,
-  ClockRange,
-  ClockStep,
-  ClockViewModel,
-  Ion,
-  JulianDate,
-  Math,
-  Terrain,
-  Viewer,
-  createOsmBuildingsAsync,
-} from "cesium";
+import { Ion, Terrain, Viewer, createOsmBuildingsAsync } from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import { useEffect } from "react";
-// import "./css/main.css";
+import "./css/main.css";
 
 const CesiumViewer = () => {
   useEffect(() => {
