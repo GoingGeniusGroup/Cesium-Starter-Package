@@ -1,11 +1,11 @@
-import ClockCesiumViewer from "./component/clockcesium/page";
-import CesiumViewer from "./component/widgetcesium/page";
+import ClockCesiumViewer from "./component/cesium/clockcesium/page";
+import CesiumViewer from "./component/cesium/widgetcesium/page";
 
-import BarChartPage from "./component/barchart/page";
-import TestDiv from "./component/testdiv/page";
+import BarChartPage from "./component/charts/barchart/page";
+import TestDiv from "./component/charts/testdiv/page";
 import Navbar from "./component/navbar/page";
-import VehicleCesiumViewer from "./component/vehiclecesium/page";
-import AircraftCesiumViewer from "./component/aircraftcesium/page";
+import VehicleCesiumViewer from "./component/avatar/vehiclecesium/page";
+import AircraftCesiumViewer from "./component/avatar/aircraftcesium/page";
 
 const Page = () => {
   return (
@@ -25,9 +25,8 @@ const Page = () => {
           {/* <RadarChartPage /> */}
           {/* <AvatarCesiumViewer /> */}
           {/* <ClockCesiumViewer /> */}
-          <VehicleCesiumViewer />
-          {/* <BikeCesiumViewer /> */}
-          {/* <AircraftCesiumViewer /> */}
+          {/* <VehicleCesiumViewer /> */}
+          <AircraftCesiumViewer />
         </div>
 
         <Navbar />
