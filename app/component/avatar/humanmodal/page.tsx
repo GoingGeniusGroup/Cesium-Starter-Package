@@ -33,7 +33,12 @@ const HumanModalCesiumViewer = () => {
       });
 
       const viewer = new Viewer("cesiumContainer", {
-        // terrain: Terrain.fromWorldTerrain(),
+        // // show terrain
+        // terrain: Terrain.fromWorldTerrain({
+        // // for day-night effect
+        //   requestWaterMask: true,
+        //   requestVertexNormals: true,
+        // }),
         clockViewModel: new ClockViewModel(clock),
         infoBox: false,
         selectionIndicator: false,

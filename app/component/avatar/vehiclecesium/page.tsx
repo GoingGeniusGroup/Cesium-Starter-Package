@@ -35,7 +35,12 @@ const VehicleCesiumViewer = () => {
 
       const viewer = new Viewer("cesiumContainer", {
         clockViewModel: new ClockViewModel(clock),
-        // terrain: Terrain.fromWorldTerrain(),
+        // // show terrain
+        // terrain: Terrain.fromWorldTerrain({
+        // // for day-night effect
+        //   requestWaterMask: true,
+        //   requestVertexNormals: true,
+        // }),
         selectionIndicator: false,
         shadows: true,
         shouldAnimate: true,

@@ -7,6 +7,7 @@ import {
   ClockStep,
   ClockViewModel,
   CloudCollection,
+  EllipsoidTerrainProvider,
   Ion,
   JulianDate,
   Math,
@@ -40,14 +41,28 @@ const WeatherViewer = () => {
 
       // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
       const viewer = new Viewer("cesiumContainer", {
-        terrain: Terrain.fromWorldTerrain(),
+        // // show terrain
+        terrain: Terrain.fromWorldTerrain({
+          // for day-night effect
+          requestWaterMask: true,
+          requestVertexNormals: true,
+        }),
         clockViewModel: new ClockViewModel(clock),
         infoBox: false,
         shouldAnimate: true,
       });
 
+      // set lighting to true
       viewer.scene.globe.enableLighting = true;
-      viewer.scene.globe.depthTestAgainstTerrain = true; // for blue sky effect
+
+      // for blue sky effect
+      viewer.scene.globe.depthTestAgainstTerrain = true;
+
+      // adjust time so scene is lit by sun
+      viewer.clock.currentTime = JulianDate.fromIso8601("2023-01-01T00:00:00");
+
+      // setup alternative terrain providers
+      const ellipsoidProvider = new EllipsoidTerrainProvider();
 
       // // Add Cesium OSM Buildings, a global 3D buildings layer.
       const osmBuildingsTileset = await createOsmBuildingsAsync();

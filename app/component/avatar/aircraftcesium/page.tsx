@@ -32,7 +32,12 @@ const AircraftCesiumViewer = () => {
       });
 
       const viewer = new Viewer("cesiumContainer", {
-        terrain: Terrain.fromWorldTerrain(), // Shows the terrains
+        // show terrain
+        terrain: Terrain.fromWorldTerrain({
+          // for day-night effect
+          requestWaterMask: true,
+          requestVertexNormals: true,
+        }),
         clockViewModel: new ClockViewModel(clock), // Shows the clock
         infoBox: false,
         selectionIndicator: false,

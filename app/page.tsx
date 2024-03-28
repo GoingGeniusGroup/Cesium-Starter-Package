@@ -1,5 +1,4 @@
-import ClockCesiumViewer from "./component/cesium/clockcesium/page";
-import CesiumViewer from "./component/cesium/widgetcesium/page";
+import WeatherViewer from "./component/weather/page";
 
 import BarChartPage from "./component/charts/barchart/page";
 import TestDiv from "./component/charts/testdiv/page";
@@ -8,7 +7,6 @@ import Navbar from "./component/navbar/page";
 import VehicleCesiumViewer from "./component/avatar/vehiclecesium/page";
 import AircraftCesiumViewer from "./component/avatar/aircraftcesium/page";
 import HumanModalCesiumViewer from "./component/avatar/humanmodal/page";
-import WeatherViewer from "./component/weather/page";
 
 const Page = () => {
   return (
@@ -24,14 +22,13 @@ const Page = () => {
             height: "100%",
           }}
         >
-          {/* <CesiumViewer /> */}
-          {/* <ClockCesiumViewer /> */}
-
           {/* <RadarChartPage /> */}
 
           {/* <HumanModalCesiumViewer /> */}
           {/* <VehicleCesiumViewer /> */}
           {/* <AircraftCesiumViewer /> */}
+
+          {/* Includes cesium widget, day-night effect, clouds, fly to certain place effect, weather */}
           <WeatherViewer />
         </div>
 
