@@ -8,6 +8,8 @@ import {
   Clock,
   ClockStep,
   ClockViewModel,
+  Terrain,
+  createOsmBuildingsAsync,
 } from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import { useEffect } from "react";
@@ -30,14 +32,15 @@ const AircraftCesiumViewer = () => {
       });
 
       const viewer = new Viewer("cesiumContainer", {
-        clockViewModel: new ClockViewModel(clock),
+        terrain: Terrain.fromWorldTerrain(), // Shows the terrains
+        clockViewModel: new ClockViewModel(clock), // Shows the clock
         infoBox: false,
         selectionIndicator: false,
         shadows: true,
         shouldAnimate: true,
       });
 
-      viewer.scene.globe.enableLighting = true;
+      viewer.scene.globe.enableLighting = true; // for lighting
       viewer.entities.removeAll();
       const scene = viewer.scene;
       scene.globe.depthTestAgainstTerrain = true;
@@ -46,7 +49,10 @@ const AircraftCesiumViewer = () => {
         window.alert("This browser does not support sampleHeight.");
       }
 
-      const height = 1000;
+      // const osmBuildingsTileset = await createOsmBuildingsAsync();
+      // viewer.scene.primitives.add(osmBuildingsTileset);
+
+      const height = 10000;
 
       const position = Cartesian3.fromDegrees(85.28472, 27.688835, height);
 

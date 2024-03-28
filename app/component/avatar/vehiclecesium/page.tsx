@@ -10,6 +10,8 @@ import {
   Clock,
   ClockStep,
   ClockViewModel,
+  Terrain,
+  SampledPositionProperty,
 } from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import { useEffect } from "react";
@@ -22,27 +24,28 @@ const VehicleCesiumViewer = () => {
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkZGUzY2FhOC00M2ViLTQ2ZmQtYWQ1Yy1kYzNhYzFhZmVkZjIiLCJpZCI6MjAwOTU1LCJpYXQiOjE3MTAyMjkxNDF9.09cBca1kjkwB2lSOjuJMFMjOUV1DWT75cHXqT3zGxIU";
 
       const clock = new Clock({
-        startTime: JulianDate.fromIso8601("2013-12-25"),
-        currentTime: JulianDate.fromIso8601("2013-12-25"),
-        stopTime: JulianDate.fromIso8601("2013-12-26"),
-        clockRange: ClockRange.LOOP_STOP, // loop when we hit the end time
+        startTime: JulianDate.fromIso8601("2017-07-11T00:00:00Z"),
+        stopTime: JulianDate.fromIso8601("2017-07-11T24:00:00Z"),
+        currentTime: JulianDate.fromIso8601("2017-07-11T10:00:00Z"),
+        clockRange: ClockRange.LOOP_STOP,
         clockStep: ClockStep.SYSTEM_CLOCK_MULTIPLIER,
-        multiplier: 4000, // how much time to advance each tick
-        shouldAnimate: true, // Animation on by default
+        multiplier: 1000,
+        shouldAnimate: true,
       });
 
       const viewer = new Viewer("cesiumContainer", {
         clockViewModel: new ClockViewModel(clock),
-        infoBox: false,
+        // terrain: Terrain.fromWorldTerrain(),
         selectionIndicator: false,
         shadows: true,
         shouldAnimate: true,
       });
 
       viewer.scene.globe.enableLighting = true;
-      viewer.entities.removeAll();
+      viewer.scene.globe.depthTestAgainstTerrain = true; // for blue sky effect
 
       const position = Cartesian3.fromDegrees(85.28472, 27.688835, 0);
+
       const heading = (210 * Math.PI) / 180;
       const pitch = 0;
       const roll = 0;

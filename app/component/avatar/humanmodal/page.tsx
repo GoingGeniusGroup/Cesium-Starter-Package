@@ -10,6 +10,7 @@ import {
   Clock,
   ClockStep,
   ClockViewModel,
+  Terrain,
 } from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import { useEffect } from "react";
@@ -32,6 +33,7 @@ const HumanModalCesiumViewer = () => {
       });
 
       const viewer = new Viewer("cesiumContainer", {
+        // terrain: Terrain.fromWorldTerrain(),
         clockViewModel: new ClockViewModel(clock),
         infoBox: false,
         selectionIndicator: false,
