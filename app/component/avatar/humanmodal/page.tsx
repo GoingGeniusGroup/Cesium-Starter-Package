@@ -15,7 +15,7 @@ import "cesium/Build/Cesium/Widgets/widgets.css";
 import { useEffect } from "react";
 import "./css/main.css";
 
-const VehicleCesiumViewer = () => {
+const HumanModalCesiumViewer = () => {
   useEffect(() => {
     const initializeCesiumViewer = async () => {
       Ion.defaultAccessToken =
@@ -49,9 +49,8 @@ const VehicleCesiumViewer = () => {
       const hpr = new HeadingPitchRoll(heading, pitch, roll);
       const orientation = Transforms.headingPitchRollQuaternion(position, hpr);
 
-      const url = "mclaren.glb";
-      // const url = "honda_twister_300.glb";
-      // const url = "carblack.glb";
+      const url = "https://models.readyplayer.me/66038d9e2aa392635c277ea9.glb"; // avatar
+      // const url = "walking_robot.glb";
 
       const entity = viewer.entities.add({
         name: url,
@@ -79,4 +78,4 @@ const VehicleCesiumViewer = () => {
   );
 };
 
-export default VehicleCesiumViewer;
+export default HumanModalCesiumViewer;
